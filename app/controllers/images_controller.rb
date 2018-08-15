@@ -3,7 +3,9 @@ class ImagesController < ApplicationController
     before_action :set_image, only: [:show, :edit, :update, :destroy]
 
     def index
-        @images = Image.all #variable de tipo array @images
+        @images = Image.where user_id: current_user.id
+        #ahora hacemos la consulta por medio del id del usuario
+
     end 
 
     def show 
@@ -19,12 +21,11 @@ class ImagesController < ApplicationController
     end    
 
     def create
-        #render plain: params[:image].inspect
-        @image = Image.new images_params
+        @image = current_user.images.new images_params
         @image.save
+        redirect_to '/'
+    end       
 
-        #redirect_to @image #redirecciona a una nueva vista
-    end
 
     def update
         @image.update images_params 
