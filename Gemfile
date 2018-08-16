@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'carrierwave' 
 gem 'mini_magick'
 gem 'devise', git: 'git://github.com/plataformatec/devise.git'
+gem 'jwt'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
